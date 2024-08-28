@@ -3,6 +3,7 @@ import SignUpBadge from "./SignUpBadge";
 import Link from "next/link";
 import HeaderMenu from "./HeaderMenu";
 import { Input } from "./ui/input";
+import { Search } from "lucide-react";
 
 export default function Header() {
   return (
@@ -14,7 +15,10 @@ export default function Header() {
             SHOP.CO
           </Link>
           <HeaderMenu />
-          <Input />
+          <Input
+            icon={<Search className="w-5 h-5" />}
+            placeholder="Search for products..."
+          />
         </div>
       </header>
     </div>
