@@ -12,7 +12,10 @@ export default function Header() {
       <header className="py-6">
         <div className="container flex gap-10 items-center justify-between">
           <div className="flex items-center gap-10">
-            <Link href="/" className="text-3xl font-bold font-candal">
+            <Link
+              href="/"
+              className="text-3xl font-bold font-candal tracking-tighter"
+            >
               SHOP.CO
             </Link>
             <HeaderMenu />
