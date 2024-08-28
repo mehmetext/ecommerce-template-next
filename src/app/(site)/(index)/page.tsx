@@ -1,3 +1,4 @@
+import Browse from "./components/Browse";
 import Hero from "./components/Hero";
 import ProductList from "./components/ProductList";
 
@@ -7,6 +8,7 @@ export default function Home() {
       <Hero />
       <ProductList title="NEW ARRIVALS" showBorder />
       <ProductList title="TOP SELLING" />
+      <Browse />
     </main>
   );
 }
