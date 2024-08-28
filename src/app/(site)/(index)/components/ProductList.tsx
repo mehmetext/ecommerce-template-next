@@ -18,7 +18,7 @@ export default function ProductList({
       })}
     >
       <div className="flex items-center justify-center text-center">
-        <h2 className="text-5xl font-candal">{title}</h2>
+        <h2 className="text-5xl font-candal tracking-tighter">{title}</h2>
       </div>
       <div className="grid sm:grid-cols-2 md:grid-cols-4 gap-10">
         <ProductItem />
