@@ -4,7 +4,7 @@ import React from "react";
 
 export default function HeaderMenu() {
   return (
-    <div className="flex gap-6">
+    <div className="gap-6 hidden md:flex">
       <button className="flex items-center gap-1">
         Shop <ChevronDownIcon className="w-4 h-4" />
       </button>
