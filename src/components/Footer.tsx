@@ -1,9 +1,11 @@
+/* eslint-disable @next/next/no-img-element */
 import React from "react";
 import { Input } from "./ui/input";
 import { Button, buttonVariants } from "./ui/button";
 import { Facebook, Github, Instagram, Mail, Twitter } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -104,11 +106,38 @@ export default function Footer() {
             </div>
           </div>
           <div className="border-t border-t-border flex flex-col gap-4 pt-6">
-            <div className="flex justify-between items-center">
+            <div className="flex flex-col md:flex-row gap-4 justify-between items-center">
               <p className="opacity-60 text-sm">
                 Shop.co © 2000-{new Date().getFullYear()}. All rights reserved.
               </p>
-              <div className="flex items-center gap-3"></div>
+              <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
+                  <div className="p-2 bg-white rounded">
+                    <img src="/images/visa.svg" alt="Visa" className="h-3" />
+                  </div>
+                  <div className="p-2 bg-white rounded">
+                    <img
+                      src="/images/mastercard.svg"
+                      alt="Mastercard"
+                      className="h-3"
+                    />
+                  </div>
+                  <div className="p-2 bg-white rounded">
+                    <img
+                      src="/images/paypal.svg"
+                      alt="Paypal"
+                      className="h-3"
+                    />
+                  </div>
+                  <div className="p-2 bg-white rounded">
+                    <img
+                      src="/images/apple-pay.svg"
+                      alt="Apple Pay"
+                      className="h-3"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
