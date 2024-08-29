@@ -53,9 +53,9 @@ export default function Header() {
           />
           <div className="flex gap-4">
             <HeaderSearch />
-            <button>
+            <Link href="/cart">
               <ShoppingCart className="w-5 h-5" />
-            </button>
+            </Link>
             <button>
               <User className="w-5 h-5" />
             </button>

@@ -12,7 +12,7 @@ export default function CategoryPage({
   searchParams: { [key: string]: string | string[] | undefined };
 }) {
   return (
-    <main className="flex flex-col gap-16 mb-20">
+    <main className="flex flex-col gap-6  mb-20">
       <BreadcrumbResponsive
         items={[{ label: "Home", href: "/" }, { label: "Men" }]}
       />

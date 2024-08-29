@@ -2,8 +2,9 @@
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import UpDownQuantity from "@/components/UpDownQuantity";
 import { cn } from "@/lib/utils";
-import { Check, Minus, Plus, Star, StarHalf } from "lucide-react";
+import { Check, Star, StarHalf } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
 
@@ -12,7 +13,6 @@ const exampleColors = ["red", "blue", "green"];
 export default function ProductTop() {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [size, setSize] = useState<string | null>(null);
-  const [quantity, setQuantity] = useState<number>(1);
 
   return (
     <section className="container flex flex-col md:flex-row gap-5">
@@ -124,29 +124,7 @@ export default function ProductTop() {
         </div>
         <div className="h-px w-full bg-border" />
         <div className="flex gap-4">
-          <div className="w-1/3 flex items-center justify-between bg-zinc-100 rounded-full">
-            <Button
-              onClick={() => {
-                setQuantity(quantity > 1 ? quantity - 1 : 1);
-              }}
-              className="h-12 w-12"
-              size="icon"
-              variant="ghost"
-            >
-              <Minus />
-            </Button>
-            <p className="text-xl font-bold">{quantity}</p>
-            <Button
-              onClick={() => {
-                setQuantity(quantity + 1);
-              }}
-              className="h-12 w-12"
-              size="icon"
-              variant="ghost"
-            >
-              <Plus />
-            </Button>
-          </div>
+          <UpDownQuantity className="w-1/3" />
           <Button className="w-2/3 h-12" size="lg">
             Add to Cart
           </Button>
