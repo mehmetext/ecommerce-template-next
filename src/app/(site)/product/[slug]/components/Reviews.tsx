@@ -10,6 +10,7 @@ import {
   SelectContent,
   SelectItem,
 } from "@/components/ui/select";
+import ReviewItem from "@/components/ReviewItem";
 
 export default function Reviews() {
   return (
@@ -17,7 +18,7 @@ export default function Reviews() {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className="flex flex-col"
+      className="flex flex-col gap-6"
     >
       <div className="flex justify-between">
         <div className="flex items-end gap-2">
@@ -29,7 +30,7 @@ export default function Reviews() {
             <SlidersHorizontal className="w-5 h-5 opacity-40" />
           </Button>
           <Select defaultValue="most-popular">
-            <SelectTrigger className="w-40 rounded-full">
+            <SelectTrigger className="hidden md:flex w-40 rounded-full">
               <SelectValue placeholder="Select a sorting" />
             </SelectTrigger>
             <SelectContent>
@@ -41,6 +42,17 @@ export default function Reviews() {
           </Select>
           <Button>Write a Review</Button>
         </div>
+      </div>
+      <div className="flex flex-col items-center justify-center gap-6">
+        <div className="w-full grid md:grid-cols-2 gap-6">
+          <ReviewItem />
+          <ReviewItem />
+          <ReviewItem />
+          <ReviewItem />
+        </div>
+        <Button className="w-[200px]" variant="outline">
+          Load More Reviews
+        </Button>
       </div>
     </motion.div>
   );
