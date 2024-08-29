@@ -147,7 +147,7 @@ export default function Filters() {
           </div>
         </CollapsibleContent>
       </Collapsible>
-      <Button>Apply Filters</Button>
+      <Button className="sticky bottom-4">Apply Filters</Button>
     </aside>
   );
 }
