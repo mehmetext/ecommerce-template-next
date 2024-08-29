@@ -4,12 +4,13 @@ import Link from "next/link";
 import HeaderMenu from "./HeaderMenu";
 import { Input } from "./ui/input";
 import { Search, ShoppingCart, User } from "lucide-react";
+import HeaderSearch from "./HeaderSearch";
 
 export default function Header() {
   return (
     <div className="flex flex-col">
       <SignUpBadge />
-      <header className="py-6">
+      <header className="py-6 relative">
         <div className="container flex gap-10 items-center justify-between">
           <div className="flex items-center gap-10">
             <Link
@@ -26,9 +27,7 @@ export default function Header() {
             placeholder="Search for products..."
           />
           <div className="flex gap-4">
-            <button className="lg:hidden">
-              <Search className="w-5 h-5" />
-            </button>
+            <HeaderSearch />
             <button>
               <ShoppingCart className="w-5 h-5" />
             </button>
