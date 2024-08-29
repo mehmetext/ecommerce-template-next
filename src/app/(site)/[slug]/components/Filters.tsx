@@ -2,16 +2,18 @@
 
 import { ChevronDown, ChevronRight, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
 
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
-import { cn } from "@/lib/utils";
+import { Slider } from "@/components/ui/slider";
 
 export default function Filters() {
+  const [minMax, setMinMax] = useState([50, 200]);
+
   return (
     <aside className="flex flex-col rounded-3xl border border-border p-5 gap-6">
       <div className="flex justify-between items-center">
@@ -36,7 +38,21 @@ export default function Filters() {
           <ChevronDown className="w-4 h-4 transition-transform" />
         </CollapsibleTrigger>
         <CollapsibleContent>
-          <div className="pt-5">content</div>
+          <div className="pt-5 flex flex-col">
+            <Slider
+              onValueChange={(value) => {
+                setMinMax(value);
+              }}
+              min={0}
+              max={250}
+              value={minMax}
+              className="pb-3"
+            />
+            <div className="flex justify-between">
+              <p className="text-xs">${minMax[0]}</p>
+              <p className="text-xs">${minMax[1]}</p>
+            </div>
+          </div>
         </CollapsibleContent>
       </Collapsible>
     </aside>
