@@ -1,6 +1,11 @@
 "use client";
 
-import { ChevronDown, ChevronRight, SlidersHorizontal } from "lucide-react";
+import {
+  Check,
+  ChevronDown,
+  ChevronRight,
+  SlidersHorizontal,
+} from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
 
@@ -10,10 +15,22 @@ import {
   CollapsibleTrigger,
 } from "@/components/ui/collapsible";
 import { Slider } from "@/components/ui/slider";
+import { cn } from "@/lib/utils";
+
+const exampleColors = [
+  "red",
+  "blue",
+  "green",
+  "yellow",
+  "purple",
+  "orange",
+  "white",
+  "pink",
+];
 
 export default function Filters() {
   const [minMax, setMinMax] = useState([50, 200]);
-
+  const [colors, setColors] = useState<string[]>([]);
   return (
     <aside className="flex flex-col rounded-3xl border border-border p-5 gap-6">
       <div className="flex justify-between items-center">
@@ -52,6 +69,39 @@ export default function Filters() {
               <p className="text-xs">${minMax[0]}</p>
               <p className="text-xs">${minMax[1]}</p>
             </div>
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+      <Collapsible defaultOpen className="flex flex-col">
+        <CollapsibleTrigger className="flex items-center justify-between [&>svg]:data-[state=open]:rotate-180">
+          Colors
+          <ChevronDown className="w-4 h-4 transition-transform" />
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <div className="pt-5 flex flex-wrap gap-5">
+            {exampleColors.map((color) => (
+              <div
+                key={color}
+                className="w-8 h-8 rounded-full flex items-center justify-center border border-black/20 cursor-pointer"
+                style={{ backgroundColor: color }}
+                onClick={() => {
+                  if (colors.includes(color)) {
+                    setColors(colors.filter((c) => c !== color));
+                  } else {
+                    setColors([...colors, color]);
+                  }
+                }}
+              >
+                {colors.includes(color) && (
+                  <Check
+                    className={cn("w-4 h-4", {
+                      "text-white": color !== "white",
+                      "text-black": ["white", "yellow", "pink"].includes(color),
+                    })}
+                  />
+                )}
+              </div>
+            ))}
           </div>
         </CollapsibleContent>
       </Collapsible>
