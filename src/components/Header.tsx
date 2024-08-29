@@ -3,7 +3,7 @@ import SignUpBadge from "./SignUpBadge";
 import Link from "next/link";
 import HeaderMenu from "./HeaderMenu";
 import { Input } from "./ui/input";
-import { Search, ShoppingCart, User } from "lucide-react";
+import { Menu, Search, ShoppingCart, User } from "lucide-react";
 import HeaderSearch from "./HeaderSearch";
 
 export default function Header() {
@@ -11,8 +11,11 @@ export default function Header() {
     <div className="flex flex-col">
       <SignUpBadge />
       <header className="py-6 relative">
-        <div className="container flex gap-10 items-center justify-between">
-          <div className="flex items-center gap-10">
+        <div className="container flex gap-5 md:gap-10 items-center justify-between">
+          <div className="flex items-center gap-5 md:gap-10">
+            <button className="md:hidden">
+              <Menu className="w-5 h-5" />
+            </button>
             <Link
               href="/"
               className="text-3xl font-bold font-candal tracking-tighter"
