@@ -1,6 +1,15 @@
-import { ChevronRight, SlidersHorizontal } from "lucide-react";
+"use client";
+
+import { ChevronDown, ChevronRight, SlidersHorizontal } from "lucide-react";
 import Link from "next/link";
 import React from "react";
+
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible";
+import { cn } from "@/lib/utils";
 
 export default function Filters() {
   return (
@@ -20,6 +29,16 @@ export default function Filters() {
           <ChevronRight className="w-4 h-4" />
         </Link>
       </div>
+      <div className="h-px w-full bg-border" />
+      <Collapsible defaultOpen className="flex flex-col">
+        <CollapsibleTrigger className="flex items-center justify-between [&>svg]:data-[state=open]:rotate-180">
+          Price
+          <ChevronDown className="w-4 h-4 transition-transform" />
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <div className="pt-5">content</div>
+        </CollapsibleContent>
+      </Collapsible>
     </aside>
   );
 }
