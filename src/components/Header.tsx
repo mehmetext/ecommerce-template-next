@@ -5,6 +5,30 @@ import HeaderMenu from "./HeaderMenu";
 import { Input } from "./ui/input";
 import { Menu, Search, ShoppingCart, User } from "lucide-react";
 import HeaderSearch from "./HeaderSearch";
+import HeaderResponsiveMenu from "./HeaderResponsiveMenu";
+
+const headerMenu: HeaderMenuItem[] = [
+  {
+    name: "Shop",
+    subMenu: [
+      { name: "On Sale", href: "/" },
+      { name: "New Arrivals", href: "/" },
+      { name: "Brands", href: "/" },
+    ],
+  },
+  {
+    name: "On Sale",
+    href: "/",
+  },
+  {
+    name: "New Arrivals",
+    href: "/",
+  },
+  {
+    name: "Brands",
+    href: "/",
+  },
+];
 
 export default function Header() {
   return (
@@ -13,16 +37,14 @@ export default function Header() {
       <header className="py-6 relative">
         <div className="container flex gap-5 md:gap-10 items-center justify-between">
           <div className="flex items-center gap-5 md:gap-10">
-            <button className="md:hidden">
-              <Menu className="w-5 h-5" />
-            </button>
+            <HeaderResponsiveMenu menu={headerMenu} />
             <Link
               href="/"
               className="text-3xl font-bold font-candal tracking-tighter"
             >
               SHOP.CO
             </Link>
-            <HeaderMenu />
+            <HeaderMenu menu={headerMenu} />
           </div>
           <Input
             containerClassName="flex-1 hidden lg:flex"

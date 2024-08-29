@@ -9,22 +9,27 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
-export default function HeaderMenu() {
+export default function HeaderMenu({ menu }: { menu: HeaderMenuItem[] }) {
   return (
     <div className="gap-6 hidden md:flex">
-      <DropdownMenu>
-        <DropdownMenuTrigger className="flex items-center gap-1">
-          Shop <ChevronDownIcon className="w-4 h-4" />
-        </DropdownMenuTrigger>
-        <DropdownMenuContent>
-          <DropdownMenuItem>On Sale</DropdownMenuItem>
-          <DropdownMenuItem>New Arrivals</DropdownMenuItem>
-          <DropdownMenuItem>Brands</DropdownMenuItem>
-        </DropdownMenuContent>
-      </DropdownMenu>
-      <Link href="/">On Sale</Link>
-      <Link href="/">New Arrivals</Link>
-      <Link href="/">Brands</Link>
+      {menu.map((v, i) => (
+        <React.Fragment key={i}>
+          {v.subMenu ? (
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center gap-1">
+                {v.name} <ChevronDownIcon className="w-4 h-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent>
+                {v.subMenu.map((s, i) => (
+                  <DropdownMenuItem key={i}>{s.name}</DropdownMenuItem>
+                ))}
+              </DropdownMenuContent>
+            </DropdownMenu>
+          ) : (
+            <Link href={v.href!}>{v.name}</Link>
+          )}
+        </React.Fragment>
+      ))}
     </div>
   );
 }
