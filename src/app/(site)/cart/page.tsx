@@ -1,6 +1,7 @@
 import { BreadcrumbResponsive } from "@/components/BreadcrumbResponsive";
 import React from "react";
 import Products from "./components/Products";
+import Summary from "./components/Summary";
 
 export default function CartPage() {
   return (
@@ -15,7 +16,9 @@ export default function CartPage() {
         <div className="md:w-7/12">
           <Products />
         </div>
-        <div className="md:w-5/12">summary</div>
+        <div className="md:w-5/12">
+          <Summary />
+        </div>
       </div>
     </main>
   );
