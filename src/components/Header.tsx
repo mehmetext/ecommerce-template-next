@@ -3,7 +3,7 @@ import SignUpBadge from "./SignUpBadge";
 import Link from "next/link";
 import HeaderMenu from "./HeaderMenu";
 import { Input } from "./ui/input";
-import { Menu, Search, ShoppingCart, User } from "lucide-react";
+import { Search, ShoppingCart, User } from "lucide-react";
 import HeaderSearch from "./HeaderSearch";
 import HeaderResponsiveMenu from "./HeaderResponsiveMenu";
 
@@ -11,9 +11,9 @@ const headerMenu: HeaderMenuItem[] = [
   {
     name: "Shop",
     subMenu: [
-      { name: "On Sale", href: "/" },
-      { name: "New Arrivals", href: "/" },
-      { name: "Brands", href: "/" },
+      { name: "Men", href: "/men" },
+      { name: "Women", href: "/women" },
+      { name: "Kids", href: "/kids" },
     ],
   },
   {
