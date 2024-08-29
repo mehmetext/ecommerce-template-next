@@ -16,6 +16,8 @@ import {
 } from "@/components/ui/collapsible";
 import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
 
 const exampleColors = [
   "red",
@@ -31,6 +33,8 @@ const exampleColors = [
 export default function Filters() {
   const [minMax, setMinMax] = useState([50, 200]);
   const [colors, setColors] = useState<string[]>([]);
+  const [sizes, setSizes] = useState<string[]>([]);
+
   return (
     <aside className="flex flex-col rounded-3xl border border-border p-5 gap-6">
       <div className="flex justify-between items-center">
@@ -72,6 +76,7 @@ export default function Filters() {
           </div>
         </CollapsibleContent>
       </Collapsible>
+      <div className="h-px w-full bg-border" />
       <Collapsible defaultOpen className="flex flex-col">
         <CollapsibleTrigger className="flex items-center justify-between [&>svg]:data-[state=open]:rotate-180">
           Colors
@@ -105,6 +110,44 @@ export default function Filters() {
           </div>
         </CollapsibleContent>
       </Collapsible>
+      <div className="h-px w-full bg-border" />
+      <Collapsible defaultOpen className="flex flex-col">
+        <CollapsibleTrigger className="flex items-center justify-between [&>svg]:data-[state=open]:rotate-180">
+          Size
+          <ChevronDown className="w-4 h-4 transition-transform" />
+        </CollapsibleTrigger>
+        <CollapsibleContent>
+          <div className="pt-5 flex flex-wrap gap-2">
+            {[
+              "XX-Small",
+              "X-Small",
+              "Small",
+              "Medium",
+              "Large",
+              "X-Large",
+              "XX-Large",
+              "3X-Large",
+              "4X-Large",
+            ].map((size) => (
+              <Badge
+                onClick={() => {
+                  if (sizes.includes(size)) {
+                    setSizes(sizes.filter((s) => s !== size));
+                  } else {
+                    setSizes([...sizes, size]);
+                  }
+                }}
+                variant={sizes.includes(size) ? "default" : "outline"}
+                className="px-4 py-2 cursor-pointer"
+                key={size}
+              >
+                {size}
+              </Badge>
+            ))}
+          </div>
+        </CollapsibleContent>
+      </Collapsible>
+      <Button>Apply Filters</Button>
     </aside>
   );
 }
