@@ -35,14 +35,23 @@ const exampleColors = [
 export default function Filters({
   inDrawer,
   closeDrawer,
+  searchParams,
 }: {
   inDrawer?: boolean;
   closeDrawer?: () => void;
+  searchParams: Record<string, string | string[] | undefined>;
 }) {
   const router = useRouter();
-  const [minMax, setMinMax] = useState([50, 200]);
-  const [colors, setColors] = useState<string[]>([]);
-  const [sizes, setSizes] = useState<string[]>([]);
+  const [minMax, setMinMax] = useState([
+    Number(searchParams.min) || 50,
+    Number(searchParams.max) || 200,
+  ]);
+  const [colors, setColors] = useState<string[]>(
+    searchParams.colors ? (searchParams.colors as string).split(",") : []
+  );
+  const [sizes, setSizes] = useState<string[]>(
+    searchParams.sizes ? (searchParams.sizes as string).split(",") : []
+  );
 
   return (
     <div

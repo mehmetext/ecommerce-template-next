@@ -19,12 +19,12 @@ export default function CategoryPage({
       <div className="container flex gap-5">
         <div className="md:w-3/12 hidden md:flex flex-col">
           <aside className="rounded-3xl border border-border p-5">
-            <Filters />
+            <Filters searchParams={searchParams} />
           </aside>
         </div>
         <div className="w-full md:w-9/12">
           <div className="flex flex-col gap-6">
-            <SortingAndTitle />
+            <SortingAndTitle searchParams={searchParams} />
             <ProductList />
             <PaginationResponsive
               currentPage={Number(searchParams.page) || 1}

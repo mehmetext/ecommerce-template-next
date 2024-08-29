@@ -13,7 +13,11 @@ import { SlidersHorizontal } from "lucide-react";
 import Filters from "./Filters";
 import { useState } from "react";
 
-export default function SortingAndTitle() {
+export default function SortingAndTitle({
+  searchParams,
+}: {
+  searchParams: Record<string, string | string[] | undefined>;
+}) {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   return (
@@ -43,7 +47,11 @@ export default function SortingAndTitle() {
           </Button>
         </DrawerTrigger>
         <DrawerContent>
-          <Filters inDrawer closeDrawer={() => setIsDrawerOpen(false)} />
+          <Filters
+            searchParams={searchParams}
+            inDrawer
+            closeDrawer={() => setIsDrawerOpen(false)}
+          />
         </DrawerContent>
       </Drawer>
     </div>
