@@ -38,7 +38,7 @@ export default function Filters() {
   const [sizes, setSizes] = useState<string[]>([]);
 
   return (
-    <aside className="flex flex-col rounded-3xl border border-border p-5 gap-6">
+    <div className="flex flex-col gap-6">
       <div className="flex justify-between items-center">
         <p className="text-xl font-semibold">Filters</p>
         <SlidersHorizontal className="w-5 h-5 opacity-40" />
@@ -161,6 +161,6 @@ export default function Filters() {
       >
         Apply Filters
       </Button>
-    </aside>
+    </div>
   );
 }

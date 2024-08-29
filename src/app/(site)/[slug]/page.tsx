@@ -10,7 +10,9 @@ export default function CategoryPage() {
       />
       <div className="container flex gap-5">
         <div className="sm:w-3/12 flex flex-col">
-          <Filters />
+          <aside className="rounded-3xl border border-border p-5">
+            <Filters />
+          </aside>
         </div>
         <div className="sm:w-9/12">products</div>
       </div>
