@@ -38,28 +38,31 @@ export default function HeaderResponsiveMenu({
                 <div className="flex flex-col gap-2">
                   <div className="text-lg font-semibold">{v.name}</div>
                   {v.subMenu.map((s, j) => (
-                    <Link
-                      key={j}
-                      href={s.href}
-                      className={cn(
-                        buttonVariants({ variant: "outline" }),
-                        "justify-start ml-4"
-                      )}
-                    >
-                      {s.name}
-                    </Link>
+                    <DrawerClose asChild key={j}>
+                      <Link
+                        href={s.href}
+                        className={cn(
+                          buttonVariants({ variant: "outline" }),
+                          "justify-start ml-4"
+                        )}
+                      >
+                        {s.name}
+                      </Link>
+                    </DrawerClose>
                   ))}
                 </div>
               ) : (
-                <Link
-                  href={v.href!}
-                  className={cn(
-                    buttonVariants({ variant: "outline" }),
-                    "justify-start"
-                  )}
-                >
-                  {v.name}
-                </Link>
+                <DrawerClose asChild>
+                  <Link
+                    href={v.href!}
+                    className={cn(
+                      buttonVariants({ variant: "outline" }),
+                      "justify-start"
+                    )}
+                  >
+                    {v.name}
+                  </Link>
+                </DrawerClose>
               )}
             </React.Fragment>
           ))}
