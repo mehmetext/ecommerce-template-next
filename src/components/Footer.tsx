@@ -1,29 +1,15 @@
 /* eslint-disable @next/next/no-img-element */
 import React from "react";
-import { Input } from "./ui/input";
-import { Button, buttonVariants } from "./ui/button";
-import { Facebook, Github, Instagram, Mail, Twitter } from "lucide-react";
+import { buttonVariants } from "./ui/button";
+import { Facebook, Github, Instagram, Twitter } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
-import Image from "next/image";
+import FooterEmailSection from "./FooterEmailSection";
 
 export default function Footer() {
   return (
     <section className="flex flex-col">
-      <div className="container -mb-[120px] z-10">
-        <div className="flex flex-col md:flex-row gap-8 justify-between items-center rounded-3xl bg-black p-6 md:p-16">
-          <p className="font-candal tracking-tighter text-4xl md:w-[480px] text-white">
-            STAY UPTO DATE ABOUT OUR LATEST OFFERS
-          </p>
-          <div className="flex flex-col gap-3 w-full md:w-2/5">
-            <Input
-              icon={<Mail className="w-5 h-5" />}
-              placeholder="Enter your email address"
-            />
-            <Button variant="white">Subscribe to Newsletter</Button>
-          </div>
-        </div>
-      </div>
+      <FooterEmailSection />
       <footer className="bg-[#F0F0F0] pt-[170px] pb-24">
         <div className="container flex flex-col gap-12">
           <div className="flex flex-wrap gap-y-10">
