@@ -16,23 +16,26 @@ export function BreadcrumbResponsive({
   items: { label: string; href?: string }[];
 }) {
   return (
-    <Breadcrumb className="container">
-      <BreadcrumbList>
-        {items.map((item, index) => (
-          <React.Fragment key={index}>
-            <BreadcrumbItem>
-              {item.href ? (
-                <BreadcrumbLink asChild>
-                  <Link href={item.href}>{item.label}</Link>
-                </BreadcrumbLink>
-              ) : (
-                <BreadcrumbPage>{item.label}</BreadcrumbPage>
-              )}
-            </BreadcrumbItem>
-            {items.length - 1 !== index && <BreadcrumbSeparator />}
-          </React.Fragment>
-        ))}
-      </BreadcrumbList>
-    </Breadcrumb>
+    <div className="container flex flex-col gap-6">
+      <div className="h-px bg-border" />
+      <Breadcrumb>
+        <BreadcrumbList>
+          {items.map((item, index) => (
+            <React.Fragment key={index}>
+              <BreadcrumbItem>
+                {item.href ? (
+                  <BreadcrumbLink asChild>
+                    <Link href={item.href}>{item.label}</Link>
+                  </BreadcrumbLink>
+                ) : (
+                  <BreadcrumbPage>{item.label}</BreadcrumbPage>
+                )}
+              </BreadcrumbItem>
+              {items.length - 1 !== index && <BreadcrumbSeparator />}
+            </React.Fragment>
+          ))}
+        </BreadcrumbList>
+      </Breadcrumb>
+    </div>
   );
 }
