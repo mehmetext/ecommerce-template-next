@@ -21,7 +21,7 @@ export default function SignUpBadgeClient({
           <motion.div
             initial={{ height: isHidden ? 0 : "auto" }}
             exit={{ height: 0 }}
-            className="fixed top-0 left-0 w-full h-10 z-10 overflow-hidden bg-black text-white"
+            className="fixed top-0 left-0 w-full h-10 z-20 overflow-hidden bg-black text-white"
           >
             <div className="container text-center text-sm">
               <div className="relative py-2.5">
