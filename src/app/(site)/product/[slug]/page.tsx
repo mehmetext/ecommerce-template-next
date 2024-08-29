@@ -1,6 +1,7 @@
 import { BreadcrumbResponsive } from "@/components/BreadcrumbResponsive";
 import React from "react";
 import ProductTop from "./components/ProductTop";
+import Tabs from "./components/Tabs";
 
 export default function ProductPage() {
   return (
@@ -15,6 +16,7 @@ export default function ProductPage() {
         ]}
       />
       <ProductTop />
+      <Tabs />
     </main>
   );
 }
