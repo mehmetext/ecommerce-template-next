@@ -21,7 +21,9 @@ export default function HeaderMenu({ menu }: { menu: HeaderMenuItem[] }) {
               </DropdownMenuTrigger>
               <DropdownMenuContent>
                 {v.subMenu.map((s, i) => (
-                  <DropdownMenuItem key={i}>{s.name}</DropdownMenuItem>
+                  <DropdownMenuItem key={i} asChild>
+                    <Link href={s.href}>{s.name}</Link>
+                  </DropdownMenuItem>
                 ))}
               </DropdownMenuContent>
             </DropdownMenu>
