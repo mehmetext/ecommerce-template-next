@@ -40,7 +40,7 @@ export default function Tabs() {
           >
             <button
               onClick={() => setTab(iTab.value)}
-              className="flex-1 relative py-4"
+              className="flex-1 relative py-2 md:py-4"
             >
               <div className="whitespace-nowrap">{iTab.label}</div>
               {tab === iTab.value && (
@@ -52,6 +52,7 @@ export default function Tabs() {
             </button>
           </div>
         ))}
+        <div className="flex-1 md:hidden border-b"></div>
       </div>
       {tab === "details" && (
         <motion.div
