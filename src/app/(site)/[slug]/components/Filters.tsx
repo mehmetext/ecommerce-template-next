@@ -5,6 +5,7 @@ import {
   ChevronDown,
   ChevronRight,
   SlidersHorizontal,
+  X,
 } from "lucide-react";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -31,17 +32,33 @@ const exampleColors = [
   "pink",
 ];
 
-export default function Filters() {
+export default function Filters({
+  inDrawer,
+  closeDrawer,
+}: {
+  inDrawer?: boolean;
+  closeDrawer?: () => void;
+}) {
   const router = useRouter();
   const [minMax, setMinMax] = useState([50, 200]);
   const [colors, setColors] = useState<string[]>([]);
   const [sizes, setSizes] = useState<string[]>([]);
 
   return (
-    <div className="flex flex-col gap-6">
+    <div
+      className={cn("flex flex-col gap-6", {
+        "px-5": inDrawer,
+      })}
+    >
       <div className="flex justify-between items-center">
         <p className="text-xl font-semibold">Filters</p>
-        <SlidersHorizontal className="w-5 h-5 opacity-40" />
+        {inDrawer ? (
+          <Button variant="ghost" size="icon" onClick={closeDrawer}>
+            <X className="w-5 h-5 opacity-40" />
+          </Button>
+        ) : (
+          <SlidersHorizontal className="w-5 h-5 opacity-40" />
+        )}
       </div>
       <div className="h-px w-full bg-border" />
       <div className="flex flex-col gap-5">
@@ -157,6 +174,8 @@ export default function Filters() {
               colors.length > 0 ? `&colors=${colors}` : ""
             }${sizes.length > 0 ? `&sizes=${sizes}` : ""}`
           );
+
+          if (closeDrawer) closeDrawer();
         }}
       >
         Apply Filters

@@ -1,4 +1,7 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
+import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer";
 import {
   Select,
   SelectTrigger,
@@ -7,8 +10,12 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import { SlidersHorizontal } from "lucide-react";
+import Filters from "./Filters";
+import { useState } from "react";
 
 export default function SortingAndTitle() {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+
   return (
     <div className="flex justify-between items-center gap-4">
       <h2 className="text-4xl font-semibold">Casual</h2>
@@ -29,9 +36,16 @@ export default function SortingAndTitle() {
           </Select>
         </div>
       </div>
-      <Button className="md:hidden" variant="outline" size="icon">
-        <SlidersHorizontal className="w-5 h-5" />
-      </Button>
+      <Drawer open={isDrawerOpen} onOpenChange={setIsDrawerOpen}>
+        <DrawerTrigger asChild>
+          <Button className="md:hidden" variant="outline" size="icon">
+            <SlidersHorizontal className="w-5 h-5" />
+          </Button>
+        </DrawerTrigger>
+        <DrawerContent>
+          <Filters inDrawer closeDrawer={() => setIsDrawerOpen(false)} />
+        </DrawerContent>
+      </Drawer>
     </div>
   );
 }
