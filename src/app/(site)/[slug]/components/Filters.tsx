@@ -18,6 +18,7 @@ import { Slider } from "@/components/ui/slider";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import { useRouter } from "next/navigation";
 
 const exampleColors = [
   "red",
@@ -31,6 +32,7 @@ const exampleColors = [
 ];
 
 export default function Filters() {
+  const router = useRouter();
   const [minMax, setMinMax] = useState([50, 200]);
   const [colors, setColors] = useState<string[]>([]);
   const [sizes, setSizes] = useState<string[]>([]);
@@ -147,7 +149,18 @@ export default function Filters() {
           </div>
         </CollapsibleContent>
       </Collapsible>
-      <Button className="sticky bottom-4">Apply Filters</Button>
+      <Button
+        className="sticky bottom-4"
+        onClick={() => {
+          router.push(
+            `?min=${minMax[0]}&max=${minMax[1]}${
+              colors.length > 0 ? `&colors=${colors}` : ""
+            }${sizes.length > 0 ? `&sizes=${sizes}` : ""}`
+          );
+        }}
+      >
+        Apply Filters
+      </Button>
     </aside>
   );
 }
