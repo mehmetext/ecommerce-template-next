@@ -43,8 +43,8 @@ export default function Filters({
 }) {
   const router = useRouter();
   const [minMax, setMinMax] = useState([
-    Number(searchParams.min) || 50,
-    Number(searchParams.max) || 200,
+    Number(searchParams.min) || 0,
+    Number(searchParams.max) || 250,
   ]);
   const [colors, setColors] = useState<string[]>(
     searchParams.colors ? (searchParams.colors as string).split(",") : []
@@ -179,9 +179,11 @@ export default function Filters({
         className="sticky bottom-4"
         onClick={() => {
           router.push(
-            `?min=${minMax[0]}&max=${minMax[1]}${
-              colors.length > 0 ? `&colors=${colors}` : ""
-            }${sizes.length > 0 ? `&sizes=${sizes}` : ""}`
+            `?${minMax[0] > 0 ? `min=${minMax[0]}` : ""}${
+              minMax[1] < 250 ? `&max=${minMax[1]}` : ""
+            }${colors.length > 0 ? `&colors=${colors}` : ""}${
+              sizes.length > 0 ? `&sizes=${sizes}` : ""
+            }`
           );
 
           if (closeDrawer) closeDrawer();
