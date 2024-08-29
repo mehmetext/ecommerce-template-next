@@ -4,8 +4,13 @@ import Filters from "./components/Filters";
 
 import SortingAndTitle from "./components/SortingAndTitle";
 import ProductList from "./components/ProductList";
+import PaginationResponsive from "@/components/PaginationResponsive";
 
-export default function CategoryPage() {
+export default function CategoryPage({
+  searchParams,
+}: {
+  searchParams: { [key: string]: string | string[] | undefined };
+}) {
   return (
     <main className="flex flex-col gap-16 mb-20">
       <BreadcrumbResponsive
@@ -21,6 +26,11 @@ export default function CategoryPage() {
           <div className="flex flex-col gap-6">
             <SortingAndTitle />
             <ProductList />
+            <PaginationResponsive
+              currentPage={Number(searchParams.page) || 1}
+              totalPages={10}
+              generateLink={(pageNumber) => `?page=${pageNumber}`}
+            />
           </div>
         </div>
       </div>
