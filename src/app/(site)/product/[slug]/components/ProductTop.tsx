@@ -13,10 +13,10 @@ export default function ProductTop() {
   const [size, setSize] = useState<string | null>(null);
 
   return (
-    <section className="container flex gap-5">
-      <div className="md:w-6/12 flex gap-3">
-        <div className="md:w-3/12 flex flex-col gap-3">
-          <div className="aspect-square rounded-3xl overflow-hidden relative border border-black">
+    <section className="container flex flex-col md:flex-row gap-5">
+      <div className="w-full md:w-6/12 flex flex-col-reverse md:flex-row items-start gap-3">
+        <div className="w-full md:w-3/12 flex md:flex-col gap-3">
+          <div className="flex-1 aspect-square rounded-3xl overflow-hidden relative border border-black">
             <Image
               fill
               src="/images/product-1.png"
@@ -24,7 +24,7 @@ export default function ProductTop() {
               className="object-contain"
             />
           </div>
-          <div className="aspect-square rounded-3xl overflow-hidden relative">
+          <div className="flex-1 aspect-square rounded-3xl overflow-hidden relative">
             <Image
               fill
               src="/images/product-1.png"
@@ -32,7 +32,7 @@ export default function ProductTop() {
               className="object-contain"
             />
           </div>
-          <div className="aspect-square rounded-3xl overflow-hidden relative">
+          <div className="flex-1 aspect-square rounded-3xl overflow-hidden relative">
             <Image
               fill
               src="/images/product-1.png"
@@ -41,7 +41,7 @@ export default function ProductTop() {
             />
           </div>
         </div>
-        <div className="self-start md:w-9/12 relative aspect-square rounded-3xl overflow-hidden">
+        <div className="self-start w-full md:w-9/12 relative aspect-square rounded-3xl overflow-hidden">
           <Image
             fill
             src="/images/product-1.png"
@@ -50,7 +50,7 @@ export default function ProductTop() {
           />
         </div>
       </div>
-      <div className="md:w-6/12 flex flex-col gap-5">
+      <div className="w-full md:w-6/12 flex flex-col gap-5">
         <h1 className="text-4xl font-candal tracking-tighter">
           {"T-shirt with Tape Details".toUpperCase()}
         </h1>
