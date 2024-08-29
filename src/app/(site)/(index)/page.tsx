@@ -1,7 +1,7 @@
+import ProductList from "@/components/ProductList";
 import Browse from "./components/Browse";
 import HappyCustomers from "./components/HappyCustomers";
 import Hero from "./components/Hero";
-import ProductList from "./components/ProductList";
 
 export default function Home() {
   return (

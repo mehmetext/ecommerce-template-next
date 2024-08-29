@@ -1,4 +1,4 @@
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { SlidersHorizontal } from "lucide-react";
 import React from "react";
@@ -11,6 +11,8 @@ import {
   SelectItem,
 } from "@/components/ui/select";
 import ReviewItem from "@/components/ReviewItem";
+import { cn } from "@/lib/utils";
+import Link from "next/link";
 
 export default function Reviews() {
   return (
@@ -50,9 +52,15 @@ export default function Reviews() {
           <ReviewItem />
           <ReviewItem />
         </div>
-        <Button className="w-[200px]" variant="outline">
+        <Link
+          href="/"
+          className={cn(
+            buttonVariants({ size: "lg", variant: "outline" }),
+            "md:self-center md:w-64"
+          )}
+        >
           Load More Reviews
-        </Button>
+        </Link>
       </div>
     </motion.div>
   );

@@ -2,6 +2,7 @@ import { BreadcrumbResponsive } from "@/components/BreadcrumbResponsive";
 import React from "react";
 import ProductTop from "./components/ProductTop";
 import Tabs from "./components/Tabs";
+import ProductList from "@/components/ProductList";
 
 export default function ProductPage() {
   return (
@@ -17,6 +18,7 @@ export default function ProductPage() {
       />
       <ProductTop />
       <Tabs />
+      <ProductList title="YOU MIGHT ALSO LIKE" />
     </main>
   );
 }
