@@ -1,5 +1,6 @@
 import { BreadcrumbResponsive } from "@/components/BreadcrumbResponsive";
 import React from "react";
+import Filters from "./components/Filters";
 
 export default function CategoryPage() {
   return (
@@ -7,6 +8,12 @@ export default function CategoryPage() {
       <BreadcrumbResponsive
         items={[{ label: "Home", href: "/" }, { label: "Men" }]}
       />
+      <div className="container flex gap-5">
+        <div className="sm:w-3/12 flex flex-col">
+          <Filters />
+        </div>
+        <div className="sm:w-9/12">products</div>
+      </div>
     </main>
   );
 }
